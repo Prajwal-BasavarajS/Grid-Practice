@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+body{
+    background-color: #7ADFFF;
+}
+
+.container{
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 80px auto;
+    gap: 20px;
+    /* background-color: red; */
+}
+
+.grid{
+    display: grid;
+    grid-template-areas: "theju  theju theju globe"
+    "prajwal prajwal prajwal globe"
+    "prajwal prajwal prajwal globe";
+
+
+}
+.box1{
+   
+    background-color: blue;
+    grid-area: theju;
+
+}
+.box2{
+    
+    grid-area: prajwal;
+    background-color: darkgreen;
+}
+.box3{
+    grid-area: globe ;
+    background-color: blanchedalmond;
+   
+}
+
+
+@media screen and (width<400px) {
+    .grid{
+        grid-template-areas: "theju" 
+        "prajwal"
+        "prajwal"
+         "globe";
+         margin: 20px;
+    }
+    
+}
