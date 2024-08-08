@@ -1,0 +1,288 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next 3 Odd Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input[type="number"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Next 3 Odd Numbers</h1>
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" />
+    
+    <h3 id="suggestions" style="margin-top: 10px;"></h3>
+
+    <script>
+        document.getElementById('numberInput').addEventListener('input', function() {
+            const number = parseInt(this.value, 10);
+            const suggestionsDiv = document.getElementById('suggestions');
+            
+            if (isNaN(number)) {
+                suggestionsDiv.innerHTML = '<p>Please enter a valid number.</p>';
+                return;
+            }
+
+            let nextOddNumbers = [];
+            let nextNumber = number;
+
+            while (nextOddNumbers.length < 4) {
+                if (nextNumber % 2 !== 0) {
+                    nextOddNumbers.push(nextNumber);
+                }
+                nextNumber++;
+            }
+
+            suggestionsDiv.innerHTML = `<p>The next 3 odd numbers are: ${nextOddNumbers.join(', ')}</p>`;
+        });
+    </script>
+</body>
+</html> -->
+
+                            <!-- <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Next 3 Odd Numbers</title>
+                                <!-- <style>
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        padding: 20px;
+                                    }
+                                    input[type="number"] {
+                                        margin-right: 10px;
+                                    }
+                                </style> -->
+                            <!-- </head>
+                            <body>
+                                <h1>Next 3 Odd Numbers</h1>
+                                <label for="numberInput">Enter a number:</label>
+                                <input type="number" id="numberInput" />
+                                
+                                <div id="suggestions" style="margin-top: 10px;"></div>
+
+                                <script>
+                                    document.getElementById('numberInput').addEventListener('input', function() {
+                                        const number = parseInt(this.value, 10);
+                                        const suggestionsDiv = document.getElementById('suggestions');
+                                        
+                                        if (isNaN(number)) {
+                                            suggestionsDiv.innerHTML = '<p>Please enter a valid number.</p>';
+                                            return;
+                                        }
+
+                                        let nextOddNumbers = [];
+                                        let nextNumber = number;
+
+                                        // If the entered number is odd, start from the next number
+                                        if (nextNumber % 2 !== 0) {
+                                            nextNumber += 2;
+                                        } else {
+                                            // Start from the next odd number if the entered number is even
+                                            nextNumber += 1;
+                                        }
+
+                                        // Generate the next 3 odd numbers
+                                        while (nextOddNumbers.length < 3) {
+                                            nextOddNumbers.push(nextNumber);
+                                            nextNumber += 2;
+                                        }
+
+                                        suggestionsDiv.innerHTML = `<p>The next 3 odd numbers are: ${nextOddNumbers.join(', ')}</p>`;
+                                    });
+                                </script>
+                            </body>
+                            </html>  -->
+
+<!-- 
+
+
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Next Odd and Even Numbers</title>
+                                <style>
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        margin: 20px;
+                                    }
+                                    .number-list {
+                                        margin-top: 10px;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <h1>Next 3 Odd and Even Numbers</h1>
+                            
+                                <label for="odd-input">Enter an odd number:</label>
+                                <input type="number" id="odd-input" placeholder="Odd number">
+                            
+                                <label for="even-input">Enter an even number:</label>
+                                <input type="number" id="even-input" placeholder="Even number">
+                            
+                                <button onclick="showNumbers()">Show Next Numbers</button>
+                            
+                                <div class="number-list">
+                                    <h2>Next Odd Numbers:</h2>
+                                    <ul id="odd-numbers"></ul>
+                            
+                                    <h2>Next Even Numbers:</h2>
+                                    <ul id="even-numbers"></ul>
+                                </div>
+                            
+                                <script>
+                                    function showNumbers() {
+                                        // Get input values
+                                        const oddInput = document.getElementById('odd-input').value;
+                                        const evenInput = document.getElementById('even-input').value;
+                            
+                                        // Parse input values as numbers
+                                        const oddNum = parseInt(oddInput, 10);
+                                        const evenNum = parseInt(evenInput, 10);
+                            
+                                        // Check if inputs are valid
+                                        if (isNaN(oddNum) || oddNum % 2 === 0) {
+                                            alert('Please enter a valid odd number.');
+                                            return;
+                                        }
+                                        if (isNaN(evenNum) || evenNum % 2 !== 0) {
+                                            alert('Please enter a valid even number.');
+                                            return;
+                                        }
+                            
+                                        // Generate next 3 odd numbers
+                                        const nextOddNumbers = [];
+                                        for (let i = 1; i <= 3; i++) {
+                                            nextOddNumbers.push(oddNum + (2 * i));
+                                        }
+                            
+                                        // Generate next 3 even numbers
+                                        const nextEvenNumbers = [];
+                                        for (let i = 1; i <= 3; i++) {
+                                            nextEvenNumbers.push(evenNum + (2 * i));
+                                        }
+                            
+                                        // Display next odd numbers
+                                        const oddList = document.getElementById('odd-numbers');
+                                        oddList.innerHTML = '';
+                                        nextOddNumbers.forEach(num => {
+                                            const li = document.createElement('li');
+                                            li.textContent = num;
+                                            oddList.appendChild(li);
+                                        });
+                            
+                                        // Display next even numbers
+                                        const evenList = document.getElementById('even-numbers');
+                                        evenList.innerHTML = '';
+                                        nextEvenNumbers.forEach(num => {
+                                            const li = document.createElement('li');
+                                            li.textContent = num;
+                                            evenList.appendChild(li);
+                                        });
+                                    }
+                                </script>
+                            </body>
+                            </html> -->
+
+
+
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Next Odd and Even Numbers</title>
+                                <style>
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        margin: 20px;
+                                    }
+                                    .number-list {
+                                        margin-top: 10px;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <h1>Next 3 Odd and Even Numbers</h1>
+                            
+                                <label for="odd-input">Enter an odd number:</label>
+                                <input type="number" id="odd-input" placeholder="Odd number">
+                            
+                                <label for="even-input">Enter an even number:</label>
+                                <input type="number" id="even-input" placeholder="Even number">
+                            
+                                <button onclick="showNumbers()">Show Next Numbers</button>
+                            
+                                <div class="number-list">
+                                    <h2>Next Odd Numbers:</h2>
+                                    <ul id="odd-numbers"></ul>
+                            
+                                    <h2>Next Even Numbers:</h2>
+                                    <ul id="even-numbers"></ul>
+                                </div>
+                            
+                                <script>
+                                    function showNumbers() {
+                                        // Get input values
+                                        const oddInput = document.getElementById('odd-input').value;
+                                        const evenInput = document.getElementById('even-input').value;
+                            
+                                        // Parse input values as numbers
+                                        const oddNum = parseInt(oddInput, 10);
+                                        const evenNum = parseInt(evenInput, 10);
+                            
+                                        // Check if inputs are valid
+                                        if (isNaN(oddNum) || oddNum % 2 === 0) {
+                                            alert('Please enter a valid odd number.');
+                                            return;
+                                        }
+                                        if (isNaN(evenNum) || evenNum % 2 !== 0) {
+                                            alert('Please enter a valid even number.');
+                                            return;
+                                        }
+                            
+                                        // Generate next 3 odd numbers
+                                        const nextOddNumbers = [];
+                                        for (let i = 1; i <= 3; i++) {
+                                            nextOddNumbers.push(oddNum + (2 * i));
+                                        }
+                            
+                                        // Generate next 3 even numbers
+                                        const nextEvenNumbers = [];
+                                        for (let i = 1; i <= 3; i++) {
+                                            nextEvenNumbers.push(evenNum + (2 * i));
+                                        }
+                            
+                                        // Display next odd numbers
+                                        const oddList = document.getElementById('odd-numbers');
+                                        oddList.innerHTML = '';
+                                        nextOddNumbers.forEach(num => {
+                                            const li = document.createElement('li');
+                                            li.textContent = num;
+                                            oddList.appendChild(li);
+                                        });
+                            
+                                        // Display next even numbers
+                                        const evenList = document.getElementById('even-numbers');
+                                        evenList.innerHTML = '';
+                                        nextEvenNumbers.forEach(num => {
+                                            const li = document.createElement('li');
+                                            li.textContent = num;
+                                            evenList.appendChild(li);
+                                        });
+                                    }
+                                </script>
+                            </body>
+                            </html>
+                            

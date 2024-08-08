@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Number Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input[type="number"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Next 3 Odd Numbers</h1>
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" />
+    <button onclick="suggestOddNumbers()">Get Suggestions</button>
+    
+    <div id="suggestions" style="margin-top: 10px;"></div>
+
+    <script>
+        function suggestOddNumbers() {
+            const inputElement = document.getElementById('numberInput');
+            const suggestionsDiv = document.getElementById('suggestions');
+            const number = parseInt(inputElement.value, 10);
+            
+            if (isNaN(number)) {
+                suggestionsDiv.innerHTML = '<p>Please enter a valid number.</p>';
+                return;
+            }
+
+            let nextOddNumbers = [];
+            let nextNumber = number;
+
+            while (nextOddNumbers.length < 3) {
+                if (nextNumber % 2 !== 0) {
+                    nextOddNumbers.push(nextNumber);
+                }
+                nextNumber++;
+            }
+
+            suggestionsDiv.innerHTML = `<p>The next 3 odd numbers are: ${nextOddNumbers.join(', ')}</p>`;
+        }
+    </script>
+</body>
+</html>
